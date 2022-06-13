@@ -1,0 +1,96 @@
+* {
+	margin: 0;
+	padding: 0;
+	border: none;
+	outline: none;
+	font-family: sans-serif;
+}
+
+body {
+	height: 100vh;
+	background-image: linear-gradient(#0AF, #03F);
+	animation: background-hue-rotate 30s infinite linear;
+}
+
+audio {
+	display: none;
+}
+
+button {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: min(250px, 75vw);
+	aspect-ratio: 3.2;
+	font-size: 2.4rem;
+	font-weight: 600;
+	color: #07F;
+	border-radius: 10px;
+	animation: foreground-hue-rotate 30s infinite linear, tilt 400ms infinite ease-in-out alternate;
+	cursor: pointer;
+}
+button:hover {
+	background-color: transparent;
+	border: 3px solid #FFF;
+	color: #FFF;
+}
+
+.card {
+	position: fixed;
+	top: 150%;
+	left: 50%;
+	transform: scaleY(0) translate(-50%, -50%);
+	row-gap: min(10px, 5vh);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	min-width: min(80vw, 320px);
+	aspect-ratio: 0.75;
+	background-color: #FFF;
+	border-radius: 24px;
+	transition: 1s;
+}
+.card img {
+	width: 80%;
+}
+.card strong {
+	font-size: 2rem;
+}
+.card span {
+	font-size: 1.5rem;
+}
+
+@media screen  and (orientation: landscape) {
+	.card {
+		height: max(80vh, 360px);
+	}
+}
+
+@keyframes background-hue-rotate {
+	0% {
+		backdrop-filter: hue-rotate(0deg);
+	}
+	100% {
+    	backdrop-filter: hue-rotate(360deg);
+	}
+}
+
+@keyframes foreground-hue-rotate {
+	0% {
+		filter: hue-rotate(0deg);
+	}
+	100% {
+    	filter: hue-rotate(360deg);
+	}
+}
+
+@keyframes tilt {
+	from {
+		transform: translate(-50%, -50%) rotate(-3deg);
+	}
+	to {
+		transform: translate(-50%, -50%) rotate(3deg);
+	}
+}
